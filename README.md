@@ -21,10 +21,10 @@ echo "kasm-user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/99-kasm-user
 chmod 440 /etc/sudoers.d/99-kasm-user
 ```
 
-5. Download MT5 and Python
+5. Copy dropin directory into Documents
 ```
- wget https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5linux.sh ; chmod +x mt5linux.sh ; ./mt5linux.sh 
-
+chmod +x ./setup.sh
+./setup.sh
 ```
 
 # VM Login
