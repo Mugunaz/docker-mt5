@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mt5-1:
+    image: kasmweb/ubuntu-jammy-desktop:1.17.0
+    container_name: mt5-1
+    restart: unless-stopped
+    ports:
+      - "6901:6901"
+      - "6801:6902"   # HTTP/WS
+    shm_size: "512m"
+    user: root
+    environment:
+      - VNC_PW=${VNC_PW}
+    volumes:
+      - ./instances/mt5-1:/home/kasm-user
