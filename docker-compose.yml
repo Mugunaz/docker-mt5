@@ -8,9 +8,25 @@ services:
     ports:
       - "6901:6901"
       - "6801:6902"   # HTTP/WS
+      - "5000:5000" # MT5
     shm_size: "512m"
-    user: root
+    user: "1000:1000"
     environment:
       - VNC_PW=${VNC_PW}
     volumes:
       - ./instances/mt5-1:/home/kasm-user
+
+  mt5-2:
+    image: kasmweb/ubuntu-jammy-desktop:1.17.0
+    container_name: mt5-2
+    restart: unless-stopped
+    ports:
+      - "6902:6901"
+      - "6802:6801"   # HTTP/WS
+      - "5001:5000" # MT5
+    shm_size: "512m"
+    user: "1000:1000"
+    environment:
+      - VNC_PW=${VNC_PW}
+    volumes:
+      - ./instances/mt5-2:/home/kasm-user
